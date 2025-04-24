@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Müşteri{% endblock %}
+{% block content %}
+<h2>{{ customer and 'Müşteriyi Düzenle' or 'Yeni Müşteri Ekle' }}</h2>
+<form method="post">
+  <div class="mb-3">
+    <label class="form-label">Ad</label>
+    <input type="text" name="first_name" class="form-control" value="{{ customer.first_name if customer }}" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Soyad</label>
+    <input type="text" name="last_name" class="form-control" value="{{ customer.last_name if customer }}" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="email" name="email" class="form-control" value="{{ customer.email if customer }}" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Telefon</label>
+    <input type="text" name="phone" class="form-control" value="{{ customer.phone if customer }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Adres</label>
+    <textarea name="address" class="form-control">{{ customer.address if customer }}</textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Kaydet</button>
+  <a href="{{ url_for('main.customers') }}" class="btn btn-secondary">Geri</a>
+</form>
+{% endblock %}

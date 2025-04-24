@@ -1,0 +1,108 @@
+/* TechStore Yönetim Sistemi CSS Stilleri */
+
+/* Genel Stiller */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+/* Navbar Stilleri */
+.navbar {
+    padding: 0.8rem 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+/* Card Stilleri */
+.card {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    border-top-left-radius: 0.5rem !important;
+    border-top-right-radius: 0.5rem !important;
+    font-weight: 600;
+}
+
+/* Form Elementleri */
+.form-control, .btn {
+    border-radius: 0.375rem;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
+
+/* Dashboard İstatistik Kartları */
+.display-6 {
+    font-size: 3rem;
+    margin-bottom: 0;
+}
+
+/* Dashboard Rapor Kartları */
+.border-primary {
+    border-top: 3px solid #0d6efd !important;
+}
+
+.border-success {
+    border-top: 3px solid #198754 !important;
+}
+
+.border-info {
+    border-top: 3px solid #0dcaf0 !important;
+}
+
+/* Login Sayfası */
+.login-card {
+    max-width: 400px;
+    margin: 2rem auto;
+}
+
+/* Personel Rapor Sayfası */
+.badge {
+    font-weight: 500;
+    padding: 0.5em 0.7em;
+}
+
+/* Animasyonlar */
+.btn {
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Mobil Düzenlemeler */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    
+    .display-6 {
+        font-size: 2.5rem;
+    }
+    
+    .card-body {
+        padding: 1.25rem;
+    }
+}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}En Çok Satılan Ürün - TechStore{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('main.dashboard') }}">Dashboard</a></li>
+                <li class="breadcrumb-item active">En Çok Satılan Ürün</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><i class="fas fa-trophy me-2"></i>En Çok Satılan Ürün</h5>
+    </div>
+    
+    <div class="card-body">
+        <form method="POST" class="row mb-4">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                    <input type="date" name="date" class="form-control" value="{{ date.strftime('%Y-%m-%d') }}">
+                    <button type="submit" class="btn btn-success">Göster</button>
+                </div>
+            </div>
+        </form>
+        
+        <div class="text-center py-4">
+            <h4 class="mb-4"><i class="fas fa-calendar-day me-2"></i>{{ date.strftime('%d.%m.%Y') }} Tarihinde En Çok Satılan Ürün</h4>
+            
+            {% if top_product %}
+            <div class="card mx-auto border-success" style="max-width: 450px;">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-box-open text-success display-1"></i>
+                    </div>
+                    <h2 class="card-title text-success">{{ top_product.name }}</h2>
+                    <div class="d-flex justify-content-center align-items-center mt-4">
+                        <div class="badge bg-success p-2 fs-6">
+                            <i class="fas fa-shopping-cart me-1"></i> {{ top_product.total_quantity }} adet satıldı
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="alert alert-warning text-center">
+                <i class="fas fa-exclamation-triangle me-2"></i>Bu tarih için henüz bir satış kaydı bulunmamaktadır.
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="card-footer d-flex justify-content-between">
+        <a href="{{ url_for('main.dashboard') }}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left me-2"></i>Dashboard'a Dön
+        </a>
+        <a href="{{ url_for('reports.daily_sales') }}" class="btn btn-primary">
+            <i class="fas fa-dollar-sign me-2"></i>Günlük Satış Miktarını Gör
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+services:
+  mssql:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: techstore_db
+    ports:
+      - "5820:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Your_password123"
+      MSSQL_PID: "Developer"

@@ -1,0 +1,76 @@
+@startuml TechStoreDB_ER_Diagram
+entity Categories {
+  *id : INT
+  name : NVARCHAR(100)
+  parent_id : INT
+}
+Categories }|..|| Categories : parent
+
+entity Departments {
+  *id : INT
+  name : NVARCHAR(100)
+}
+
+entity Employees {
+  *id : INT
+  first_name : NVARCHAR(50)
+  last_name : NVARCHAR(50)
+  email : NVARCHAR(100)
+  hire_date : DATE
+  salary : DECIMAL(10,2)
+  annual_leave : INT
+  department_id : INT
+}
+Departments ||--o{ Employees : has
+
+entity Customers {
+  *id : INT
+  first_name : NVARCHAR(50)
+  last_name : NVARCHAR(50)
+  email : NVARCHAR(100)
+  phone : NVARCHAR(20)
+  address : NVARCHAR(MAX)
+  created_at : DATETIME
+}
+
+entity Users {
+  *id : INT
+  username : NVARCHAR(50)
+  password_hash : NVARCHAR(256)
+  employee_id : INT
+  is_admin : BIT
+}
+Employees ||--o{ Users : owns
+
+entity Products {
+  *id : INT
+  name : NVARCHAR(100)
+  description : NVARCHAR(MAX)
+  price : DECIMAL(10,2)
+  stock : INT
+  created_at : DATETIME
+  category_id : INT
+}
+Categories ||--o{ Products : contains
+
+entity Sales {
+  *id : INT
+  customer_id : INT
+  employee_id : INT
+  sale_date : DATETIME
+  total_amount : DECIMAL(10,2)
+}
+Customers ||--o{ Sales : places
+Employees ||--o{ Sales : handles
+
+entity SaleDetails {
+  *id : INT
+  sale_id : INT
+  product_id : INT
+  quantity : INT
+  unit_price : DECIMAL(10,2)
+  subtotal : DECIMAL(10,2)
+}
+Sales ||--o{ SaleDetails : includes
+Products ||--o{ SaleDetails : refers
+@enduml

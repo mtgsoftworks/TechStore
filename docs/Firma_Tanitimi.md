@@ -1,8 +1,8 @@
 # Firma Tanıtımı
 
-## TechStoreDB Inc.
+## TechStore Inc.
 
-TechStoreDB Inc., 2025 yılında kurulmuş hayali bir teknoloji perakende firmasıdır. Şirketimiz, dizüstü bilgisayarlar, masaüstü bilgisayarlar, akıllı telefonlar, tabletler ve aksesuarlar gibi geniş ürün yelpazesi sunar ve müşteri memnuniyetini en üst düzeyde tutar.
+TechStore Inc., 2025 yılında kurulmuş hayali bir teknoloji perakende firmasıdır. Şirketimiz, dizüstü bilgisayarlar, masaüstü bilgisayarlar, akıllı telefonlar, tabletler ve aksesuarlar gibi geniş ürün yelpazesi sunar ve müşteri memnuniyetini en üst düzeyde tutar.
 
 ### Misyon
 - Yenilikçi ve kaliteli teknoloji ürünlerini ulaşılabilir fiyatlarla sunmak.

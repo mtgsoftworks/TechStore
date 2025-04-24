@@ -35,7 +35,10 @@ Bu proje, bir teknoloji mağazasının envanter, satış, müşteri ilişkileri 
    ```
 
 4. `.env` dosyasını oluşturun:
-   ```
+   ```bash
+   # Windows
+   copy .env.example .env
+   # Linux/MacOS
    cp .env.example .env
    ```
    Ve gerekli değişkenleri düzenleyin.
@@ -58,7 +61,11 @@ Bu proje, bir teknoloji mağazasının envanter, satış, müşteri ilişkileri 
    ```
 
 8. Uygulamayı çalıştırın:
-   ```
+   ```bash
+   # Windows
+   python app.py
+   # Linux/MacOS
+   export FLASK_APP=app.py
    flask run
    ```
 

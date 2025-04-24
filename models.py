@@ -62,7 +62,7 @@ class Customer(db.Model):
     address = db.Column(db.Text, nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     
-    sales = db.relationship('Sale', backref='customer', lazy=True)
+    sales = db.relationship('Sale', backref='customer', lazy=True, cascade="all, delete-orphan")
 
 # Satış Tablosu
 class Sale(db.Model):

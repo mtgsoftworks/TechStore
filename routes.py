@@ -241,8 +241,16 @@ def edit_customer(customer_id):
 def delete_customer(customer_id):
     if not current_user.is_admin:
         abort(403)
+    # ensure customer exists
     customer = Customer.query.get_or_404(customer_id)
-    db.session.delete(customer)
+    # manual cascade deletion of details, sales, then customer
+    SaleDetail.query.filter(
+        SaleDetail.sale_id.in_(
+            db.session.query(Sale.id).filter(Sale.customer_id == customer_id)
+        )
+    ).delete(synchronize_session=False)
+    Sale.query.filter_by(customer_id=customer_id).delete(synchronize_session=False)
+    Customer.query.filter_by(id=customer_id).delete(synchronize_session=False)
     db.session.commit()
     flash('Müşteri silindi!')
     return redirect(url_for('main.customers'))
